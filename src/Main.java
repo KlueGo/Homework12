@@ -1,15 +1,15 @@
 public class Main {
     public static void main(String args[]) {
 
-        Autor autor1 = new Autor("Александр Пушкин");
+        Author autor1 = new Author("Александр", " Пушкин");
         Book book1 = new Book("Евгений Онегин", 1837);
-        Autor autor2 = new Autor("Эдуард Асадов");
+        Author autor2 = new Author("Эдуард", " Асадов");
         Book book2 = new Book("Не проходите мимо любви", 2005);
 
-        System.out.println("Книга " + book1.getNameBook() + " Автор " + autor1.getAutorName() + " " + book1.getPublishingYear() + " года выпуска.");
-        System.out.println("Книга " + book2.getNameBook() + " Автор " + autor2.getAutorName() + " " + book2.getPublishingYear() + " года выпуска.");
+        System.out.println("Книга " + book1.getNameBook() + " Автор " + autor1.getFullName() + " " + book1.getPublishingYear() + " года выпуска.");
+        System.out.println("Книга " + book2.getNameBook() + " Автор " + autor2.getFullName() + " " + book2.getPublishingYear() + " года выпуска.");
         book2.setPublishingYear(2006);
-        System.out.println("Книга " + book2.getNameBook() + " Автор " + autor2.getAutorName() + " " + book2.getPublishingYear() + " года выпуска.");
+        System.out.println("Книга " + book2.getNameBook() + " Автор " + autor2.getFullName() + " " + book2.getPublishingYear() + " года выпуска.");
     }
 
     public static class Book {
@@ -34,14 +34,23 @@ public class Main {
         }
     }
 
-    public static class Autor {
-        private String autorName;
+    public static class Author {
+        private String authorName;
+        private String authorSername;
 
-        public Autor(String autorName){
-            this.autorName = autorName;
+        public Author(String authorName, String authorSername){
+            this.authorName = authorName;
+            this.authorSername = authorSername;
+
         }
-        public String getAutorName(){
-            return this.autorName;
+        public String getAuthorName(){
+            return this.authorName;
+        }
+        public String getAuthorSername(){
+            return this.authorSername;
+        }
+        public String getFullName(){
+            return authorName + authorSername;
         }
     }
 
